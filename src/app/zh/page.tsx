@@ -6,21 +6,21 @@ import FAQ from '@/components/FAQ';
 import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = getTranslations('en');
+  const t = getTranslations('zh');
   return {
     title: t.title,
     description: t.metaDescription,
     keywords: t.metaKeywords,
     alternates: {
-      canonical: '/',
-      languages: { 'zh': '/zh' },
+      canonical: '/zh',
+      languages: { 'en': '/' },
     },
     openGraph: {
       title: t.title,
       description: t.metaDescription,
-      url: '/',
+      url: '/zh',
       siteName: t.siteName,
-      locale: 'en_US',
+      locale: 'zh_CN',
       type: 'website',
       images: [{ url: '/og-image.png', width: 1200, height: 630, alt: t.siteName }],
     },
@@ -37,16 +37,16 @@ export async function generateMetadata(): Promise<Metadata> {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Chinese Gender Calendar',
-  description: 'Predict your baby\'s gender using the traditional Chinese Gender Calendar based on mother\'s lunar age and conception month',
+  name: '中国性别日历',
+  description: '根据母亲受孕时的虚岁和受孕月份预测宝宝性别的传统中国性别日历工具',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'All',
-  url: '/',
-  inLanguage: 'en',
+  url: '/zh',
+  inLanguage: 'zh-CN',
 };
 
-export default function HomePage() {
-  const t = getTranslations('en');
+export default function ChinesePage() {
+  const t = getTranslations('zh');
 
   return (
     <>
@@ -63,12 +63,12 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-3 text-sm">
               <a href="#predictor" className="text-gray-600 hover:text-red-600 transition-colors font-medium">{t.formTitle}</a>
-              <a href="#calendar-table" className="text-gray-600 hover:text-red-600 transition-colors font-medium hidden sm:block">Chart</a>
+              <a href="#calendar-table" className="text-gray-600 hover:text-red-600 transition-colors font-medium hidden sm:block">日历表</a>
               <Link
-                href="/zh"
+                href="/"
                 className="bg-red-50 hover:bg-red-100 text-red-700 font-semibold px-3 py-1.5 rounded-lg transition-colors text-sm border border-red-200"
               >
-                中文
+                English
               </Link>
             </div>
           </div>
