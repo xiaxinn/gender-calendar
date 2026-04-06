@@ -37,6 +37,11 @@ export interface Translations {
   backToTop: string;
   faqTitle: string;
   faqs: { q: string; a: string }[];
+  zodiacPredictionTitle: string;
+  zodiacStoryTitle: string;
+  zodiacTraitsTitle: string;
+  zodiacPros: string;
+  zodiacCons: string;
 }
 
 const zh: Translations = {
@@ -75,6 +80,11 @@ const zh: Translations = {
   girlLabel: '女',
   backToTop: '回到顶部',
   faqTitle: '常见问题',
+  zodiacPredictionTitle: '宝宝生肖预测',
+  zodiacStoryTitle: '生肖传说小故事',
+  zodiacTraitsTitle: '生肖性格特点',
+  zodiacPros: '优点',
+  zodiacCons: '缺点',
   faqs: [
     {
       q: '中国性别日历准确吗？',
@@ -131,6 +141,11 @@ const en: Translations = {
   girlLabel: 'Girl',
   backToTop: 'Back to Top',
   faqTitle: 'Frequently Asked Questions',
+  zodiacPredictionTitle: 'Baby Zodiac Sign Prediction',
+  zodiacStoryTitle: 'The Legend of Zodiac',
+  zodiacTraitsTitle: 'Personality Traits',
+  zodiacPros: 'Strengths',
+  zodiacCons: 'Weaknesses',
   faqs: [
     {
       q: 'How accurate is the Chinese Gender Calendar?',

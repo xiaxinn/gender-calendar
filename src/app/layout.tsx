@@ -10,6 +10,10 @@ export const metadata: Metadata = {
     template: '%s | Chinese Gender Calendar',
   },
   description: 'Predict your baby\'s gender with the ancient Chinese Gender Calendar!',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
