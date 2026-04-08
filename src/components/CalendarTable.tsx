@@ -21,11 +21,11 @@ export default function CalendarTable({ t, highlightAge, highlightMonth }: Calen
       <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-2">{t.tableTitle}</h2>
       <p className="text-center text-gray-500 text-sm mb-6">
         <span className="inline-flex items-center gap-1.5 mr-4">
-          <span className="inline-block w-4 h-4 rounded bg-sky-400"></span>
+          <span className="text-base leading-none">👦</span>
           {t.boyLabel}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="inline-block w-4 h-4 rounded bg-pink-400"></span>
+          <span className="text-base leading-none">👧</span>
           {t.girlLabel}
         </span>
       </p>
@@ -68,26 +68,37 @@ export default function CalendarTable({ t, highlightAge, highlightMonth }: Calen
                     const month = monthIndex + 1;
                     const isHighlight = highlightAge === age && highlightMonth === month;
                     const isHoverHighlight = (hoveredAge === age || hoveredMonth === month);
+                    const isCellHovered = hoveredAge === age && hoveredMonth === month;
                     return (
                       <td
                         key={month}
                         onMouseEnter={() => setHoveredMonth(month)}
                         onMouseLeave={() => setHoveredMonth(null)}
                         className={`text-center px-2 py-2.5 font-semibold text-xs transition-all ${
-                          isHighlight
-                            ? 'ring-2 ring-yellow-400 ring-inset scale-105 z-20 relative'
-                            : ''
+                          isCellHovered
+                            ? 'scale-110 z-30 relative shadow-xl cursor-default'
+                            : isHighlight
+                              ? 'ring-2 ring-yellow-400 ring-inset scale-105 z-20 relative shadow-md'
+                              : ''
                         } ${
                           gender === 'boy'
-                            ? isHoverHighlight || isHighlight
-                              ? 'bg-sky-300 text-sky-900'
-                              : 'bg-sky-100 text-sky-700'
-                            : isHoverHighlight || isHighlight
-                            ? 'bg-pink-300 text-pink-900'
-                            : 'bg-pink-100 text-pink-700'
+                            ? isCellHovered
+                              ? 'bg-sky-400 text-sky-950'
+                              : isHoverHighlight || isHighlight
+                                ? 'bg-sky-300 text-sky-900'
+                                : 'bg-sky-100 text-sky-700'
+                            : isCellHovered
+                              ? 'bg-pink-400 text-pink-950'
+                              : isHoverHighlight || isHighlight
+                                ? 'bg-pink-300 text-pink-900'
+                                : 'bg-pink-100 text-pink-700'
                         }`}
                       >
-                        {gender === 'boy' ? t.boyLabel : t.girlLabel}
+                        {gender === 'boy' ? (
+                          <span aria-label={t.boyLabel} title={t.boyLabel} className="text-base leading-none block">👦</span>
+                        ) : (
+                          <span aria-label={t.girlLabel} title={t.girlLabel} className="text-base leading-none block">👧</span>
+                        )}
                       </td>
                     );
                   })}

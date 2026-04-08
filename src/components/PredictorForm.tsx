@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { predictGender, MIN_LUNAR_AGE, MAX_LUNAR_AGE, Gender } from '@/lib/genderCalendar';
 import { Translations } from '@/lib/i18n';
-import ZodiacCard from './ZodiacCard';
 
 interface PredictorFormProps {
   t: Translations;
@@ -12,7 +11,7 @@ interface PredictorFormProps {
 export default function PredictorForm({ t }: PredictorFormProps) {
   const [lunarAge, setLunarAge] = useState<string>('');
   const [month, setMonth] = useState<string>((new Date().getMonth() + 1).toString());
-  const [conceptionYear, setConceptionYear] = useState<string>(new Date().getFullYear().toString());
+
   const [result, setResult] = useState<Gender | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -41,7 +40,7 @@ export default function PredictorForm({ t }: PredictorFormProps) {
     }, 2000);
   };
 
-  const isReady = lunarAge !== '' && month !== '' && conceptionYear !== '';
+  const isReady = lunarAge !== '' && month !== '';
 
   return (
     <section id="predictor" className="w-full max-w-2xl mx-auto">
@@ -75,41 +74,24 @@ export default function PredictorForm({ t }: PredictorFormProps) {
             </select>
           </div>
 
-          {/* Conception Year & Month combined */}
+          {/* Conception Month */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-              {t.labelConceptionYear} / {t.labelMonth}
+            <label htmlFor="conception-month" className="block text-sm font-semibold text-gray-700 mb-1.5">
+              {t.labelMonth}
             </label>
-            <div className="flex gap-3">
-              <select
-                id="conception-year"
-                value={conceptionYear}
-                onChange={(e) => { setConceptionYear(e.target.value); setResult(null); }}
-                className="w-1/2 rounded-xl border-2 border-gray-200 py-3 px-4 text-gray-800 focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all bg-white font-medium"
-              >
-                {Array.from({ length: 11 }, (_, i) => {
-                  const year = new Date().getFullYear() - 5 + i;
-                  return (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  );
-                })}
-              </select>
-              <select
-                id="conception-month"
-                value={month}
-                onChange={(e) => { setMonth(e.target.value); setResult(null); }}
-                className="w-1/2 rounded-xl border-2 border-gray-200 py-3 px-4 text-gray-800 focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all bg-white font-medium"
-              >
-                <option value="">{t.placeholderMonth}</option>
-                {t.monthFull.map((name, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}. {name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <select
+              id="conception-month"
+              value={month}
+              onChange={(e) => { setMonth(e.target.value); setResult(null); }}
+              className="w-full rounded-xl border-2 border-gray-200 py-3 px-4 text-gray-800 focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-100 transition-all bg-white font-medium"
+            >
+              <option value="">{t.placeholderMonth}</option>
+              {t.monthFull.map((name, i) => (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}. {name}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Submit */}
@@ -175,15 +157,6 @@ export default function PredictorForm({ t }: PredictorFormProps) {
             <p className="text-xs text-gray-500 text-center leading-relaxed">{t.disclaimer}</p>
           </div>
         </div>
-      )}
-
-      {/* Zodiac Card */}
-      {result && (
-        <ZodiacCard
-          conceptionYear={Number(conceptionYear)}
-          conceptionMonth={Number(month)}
-          t={t}
-        />
       )}
     </section>
   );
