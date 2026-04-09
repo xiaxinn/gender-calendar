@@ -12,8 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t.metaDescription,
     keywords: t.metaKeywords,
     alternates: {
-      canonical: '/zh',
-      languages: { 'en': '/' },
+      canonical: 'https://chinese-gender-calendar.net/zh',
+      languages: {
+        'en': 'https://chinese-gender-calendar.net',
+        'zh-CN': 'https://chinese-gender-calendar.net/zh',
+        'x-default': 'https://chinese-gender-calendar.net',
+      },
     },
     openGraph: {
       title: t.title,
@@ -41,7 +45,7 @@ const jsonLd = {
   description: '根据母亲受孕时的虚岁和受孕月份预测宝宝性别的传统中国性别日历工具',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'All',
-  url: '/zh',
+  url: 'https://chinese-gender-calendar.net/zh',
   inLanguage: 'zh-CN',
 };
 

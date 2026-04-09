@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://chinese-gender-calendar.net'),
   title: {
     default: 'Chinese Gender Calendar - Baby Gender Predictor',
-    template: 'Chinese Gender Calendar',
+    template: '%s | Chinese Gender Calendar',
   },
   description: 'Try this traditional Chinese gender calendar tool based on your age and conception date. It\'s fun, free, and easy to use!',
   icons: {

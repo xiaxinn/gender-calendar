@@ -6,8 +6,25 @@ import { Translations } from '@/lib/i18n';
 export default function FAQ({ t }: { t: Translations }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <section id="faq" className="w-full max-w-2xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6">{t.faqTitle}</h2>
       <div className="space-y-3">
         {t.faqs.map((faq, i) => (

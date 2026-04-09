@@ -12,8 +12,12 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t.metaDescription,
     keywords: t.metaKeywords,
     alternates: {
-      canonical: '/',
-      languages: { 'zh': '/zh' },
+      canonical: 'https://chinese-gender-calendar.net/',
+      languages: {
+        'en': 'https://chinese-gender-calendar.net/',
+        'zh-CN': 'https://chinese-gender-calendar.net/zh',
+        'x-default': 'https://chinese-gender-calendar.net/',
+      },
     },
     openGraph: {
       title: t.title,
@@ -41,7 +45,7 @@ const jsonLd = {
   description: 'Predict your baby\'s gender using the traditional Chinese Gender Calendar based on mother\'s lunar age and conception month',
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'All',
-  url: '/',
+  url: 'https://chinese-gender-calendar.net/',
   inLanguage: 'en',
 };
 
