@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date('2026-04-50T00:00:00.000Z'),
+      lastModified: new Date('2026-04-05T00:00:00.000Z'),
       changeFrequency: 'monthly',
       priority: 1,
       alternates: {
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/zh`,
-      lastModified: new Date('2026-04-90T21:00:00.000Z'),
+      lastModified: new Date('2026-04-09T21:00:00.000Z'),
       changeFrequency: 'monthly',
       priority: 0.9,
       alternates: {
