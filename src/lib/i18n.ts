@@ -42,6 +42,10 @@ export interface Translations {
   zodiacTraitsTitle: string;
   zodiacPros: string;
   zodiacCons: string;
+  backgroundTitle: string;
+  backgroundP1: string;
+  backgroundP2: string;
+  backgroundTags: string[];
 }
 
 const zh: Translations = {
@@ -85,6 +89,10 @@ const zh: Translations = {
   zodiacTraitsTitle: '生肖性格特点',
   zodiacPros: '优点',
   zodiacCons: '缺点',
+  backgroundTitle: 'Chinese Gender Calendar（清宫图）背景',
+  backgroundP1: 'Chinese Gender Calendar（清宫图），又称 Chinese Gender Chart 或 Chinese Baby Gender Predictor，是一种源自中国传统文化的性别预测方法。该方法通常被认为起源于清朝，并与阴阳五行等传统理论相关联，因此也常被称为一种"ancient Chinese gender prediction method"。',
+  backgroundP2: 'Chinese Gender Calendar 的核心逻辑基于两个关键因素：lunar age（农历年龄）和 conception month（受孕月份）。用户通过将这两个数据匹配到 Chinese Gender Chart（清宫图对照表）中，即可获得预测结果（boy or girl）。这种简单直观的使用方式，使得 Chinese gender predictor / gender prediction chart 在全球范围内持续受到关注。',
+  backgroundTags: ['Chinese Gender Calendar', 'Chinese Gender Chart', 'Chinese Baby Gender Predictor', '农历年龄 (Lunar Age)', '受孕月份 (Conception Month)', '古代性别预测法'],
   faqs: [
     {
       q: '中国性别日历准确吗？',
@@ -146,6 +154,10 @@ const en: Translations = {
   zodiacTraitsTitle: 'Personality Traits',
   zodiacPros: 'Strengths',
   zodiacCons: 'Weaknesses',
+  backgroundTitle: 'About the Chinese Gender Calendar (Qing Palace Chart)',
+  backgroundP1: 'The Chinese Gender Calendar, also known as the Chinese Gender Chart or Chinese Baby Gender Predictor, is a gender prediction method rooted in traditional Chinese culture. It is widely believed to have originated during the Qing Dynasty and is associated with classical theories such as Yin-Yang and the Five Elements — which is why it is often referred to as an "ancient Chinese gender prediction method."',
+  backgroundP2: "The core logic of the Chinese Gender Calendar is based on two key factors: the mother's lunar age at conception and the conception month. By matching these two data points against the Chinese Gender Chart, users can obtain a predicted result (boy or girl). This simple and intuitive approach has made the Chinese gender predictor and gender prediction chart a topic of ongoing global interest.",
+  backgroundTags: ['Chinese Gender Calendar', 'Chinese Gender Chart', 'Chinese Baby Gender Predictor', 'Lunar Age', 'Conception Month', 'Ancient Chinese Prediction'],
   faqs: [
     {
       q: 'How accurate is the Chinese Gender Calendar?',

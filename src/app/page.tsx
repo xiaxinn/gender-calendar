@@ -3,6 +3,7 @@ import { getTranslations } from '@/lib/i18n';
 import PredictorForm from '@/components/PredictorForm';
 import CalendarTable from '@/components/CalendarTable';
 import FAQ from '@/components/FAQ';
+import BackgroundSection from '@/components/BackgroundSection';
 import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -99,6 +100,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 pb-20 space-y-16">
           <PredictorForm t={t} />
           <CalendarTable t={t} />
+          <BackgroundSection t={t} />
           <FAQ t={t} />
         </div>
 
