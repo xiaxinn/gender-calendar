@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Try this traditional Chinese gender calendar tool based on your age and conception date. It\'s fun, free, and easy to use!',
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
   },
 };
 
