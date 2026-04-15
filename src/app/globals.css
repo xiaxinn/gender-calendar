@@ -8,29 +8,50 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Noto Sans SC', Arial, sans-serif;
+  /* --font-sans: 'Noto Sans SC', Arial, sans-serif; */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Noto Sans SC', Arial, Helvetica, sans-serif;
+  /* font-family: 'Noto Sans SC', Arial, Helvetica, sans-serif; */
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes bounceSlow {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 .animate-fadeIn {
@@ -57,6 +78,7 @@ html {
 }
 
 /* Sticky table column shadow */
-td.sticky, th.sticky {
-  box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+td.sticky,
+th.sticky {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
 }
